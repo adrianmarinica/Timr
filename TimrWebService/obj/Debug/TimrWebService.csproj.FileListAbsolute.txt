@@ -1,0 +1,5 @@
+c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\bin\TimrWebService.dll
+c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\bin\TimrWebService.pdb
+c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\obj\Debug\ResolveAssemblyReference.cache
+c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\obj\Debug\TimrWebService.dll
+c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\obj\Debug\TimrWebService.pdb
