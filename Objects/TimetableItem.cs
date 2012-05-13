@@ -23,6 +23,7 @@ namespace Objects
         }
         public int OptionalPackage { get; set; }
         public DayOfWeek Day { get; set; }
+        public Group StudyGroup { get; set; }
 
         public TimetableItem()
         {

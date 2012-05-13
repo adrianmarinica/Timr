@@ -19,37 +19,59 @@ namespace FIITimetableParser
 
         #region PublicMethods
 
-        public List<TimetableItem> GetFullTimetable()
-        {
-            List<TimetableItem> timetable = new List<TimetableItem>();
-            return timetable;
-        }
-
-        public List<TimetableItem> GetTimetable(StudyYear year, string groupName)
+        public List<TimetableItem> GetTimetableForYear(StudyYear year, HalfYear halfYear = HalfYear.None)
         {
             List<TimetableItem> timetable;
 
-            using (WebClient client = new WebClient())
-            {
-                string tempYear = Enum.GetName(typeof(StudyYear), year);
-                try
-                {
-                    HtmlWeb hw = new HtmlWeb();
-                    HtmlDocument doc = hw.Load(String.Format("http://thor.info.uaic.ro/~orar/participanti/orar_{0}{1}.html", tempYear, groupName));
-                    doc.DocumentNode.InnerHtml = doc.DocumentNode.InnerHtml.Replace("\r\n", "");
+            string tempYear = Enum.GetName(typeof(StudyYear), year);
+            string tempHalfYear = Enum.GetName(typeof(HalfYear), halfYear);
+            if (tempHalfYear == "None") tempHalfYear = String.Empty;
 
-                    timetable = ParseTable(doc);
-                }
-                catch (WebException ex)
-                {
-                    Logger.ExceptionLogger.Log(ex);
-                    timetable = null;
-                }
-                catch (NotSupportedException ex)
-                {
-                    Logger.ExceptionLogger.Log(ex);
-                    timetable = null;
-                }
+            try
+            {
+                HtmlWeb hw = new HtmlWeb();
+                HtmlDocument doc = hw.Load(String.Format("http://thor.info.uaic.ro/~orar/participanti/orar_{0}{1}.html", tempYear, halfYear));
+                doc.DocumentNode.InnerHtml = doc.DocumentNode.InnerHtml.Replace("\r\n", "");
+
+                timetable = ParseTable(doc, TimetableType.Year);
+            }
+            catch (WebException ex)
+            {
+                Logger.ExceptionLogger.Log(ex);
+                timetable = null;
+            }
+            catch (NotSupportedException ex)
+            {
+                Logger.ExceptionLogger.Log(ex);
+                timetable = null;
+            }
+            return timetable;
+        }
+
+        public List<TimetableItem> GetTimetableForGroup(StudyYear year, HalfYear halfYear, string groupNumber)
+        {
+            List<TimetableItem> timetable;
+            string tempYear = Enum.GetName(typeof(StudyYear), year);
+            string tempHalfYear = Enum.GetName(typeof(HalfYear), halfYear);
+            if (tempHalfYear == "None")
+                tempHalfYear = String.Empty;
+
+            try
+            {
+                HtmlWeb hw = new HtmlWeb();
+                HtmlDocument doc = hw.Load(String.Format("http://thor.info.uaic.ro/~orar/participanti/orar_{0}{1}{2}.html", tempYear, tempHalfYear, groupNumber));
+                doc.DocumentNode.InnerHtml = doc.DocumentNode.InnerHtml.Replace("\r\n", "");
+                timetable = ParseTable(doc, TimetableType.Group, year, halfYear, groupNumber);
+            }
+            catch (WebException ex)
+            {
+                Logger.ExceptionLogger.Log(ex);
+                timetable = null;
+            }
+            catch (NotSupportedException ex)
+            {
+                Logger.ExceptionLogger.Log(ex);
+                timetable = null;
             }
             return timetable;
         }
@@ -58,9 +80,8 @@ namespace FIITimetableParser
 
         #region PrivateMethods
 
-        private List<TimetableItem> ParseTable(HtmlDocument document)
+        private List<TimetableItem> ParseTable(HtmlDocument document, TimetableType type, StudyYear studyYear = StudyYear.None, HalfYear halfYear = HalfYear.None, string groupNumber = "")
         {
-
             List<TimetableItem> timetable = new List<TimetableItem>();
             if (document.DocumentNode.Descendants("table").Count() > 0)
             {
@@ -69,6 +90,7 @@ namespace FIITimetableParser
                     DayOfWeek day = DayOfWeek.Monday;
                     foreach (HtmlNode tableRow in table.Descendants("tr"))
                     {
+                        bool isDirty = false;
                         if (tableRow.Attributes.Count == 0)
                         {
                             TimetableItem item = null;
@@ -106,7 +128,28 @@ namespace FIITimetableParser
                                             }
                                             break;
                                         case 2:
-                                            item.ClassName = innerText;
+                                            if (type == TimetableType.Year)
+                                            {
+                                                item.StudyGroup = GetGroupFromCell(innerText);
+                                                index--;
+                                                type = TimetableType.Group;
+                                                isDirty = true;
+                                            }
+                                            else
+                                            {
+                                                item.ClassName = innerText;
+                                                if (item.StudyGroup == null)
+                                                {
+                                                    item.StudyGroup = new Group
+                                                    {
+                                                        YearOfStudy = studyYear,
+                                                        HalfYearOfStudy = halfYear,
+                                                        Number = groupNumber
+                                                    };
+                                                }
+                                                if (isDirty)
+                                                    type = TimetableType.Year;
+                                            }
                                             break;
                                         case 3:
                                             item.TypeOfClass = GetClassTypeFromCell(innerText);
@@ -134,6 +177,29 @@ namespace FIITimetableParser
                 }
             }
             return timetable;
+        }
+
+        private Group GetGroupFromCell(string text)
+        {
+            Group group = new Group();
+            int yearIndex = text.IndexOfAny(new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' });
+            string year = text.Substring(0, yearIndex + 1);
+
+            if (Enum.IsDefined(typeof(StudyYear), year))
+                group.YearOfStudy = (StudyYear)Enum.Parse(typeof(StudyYear), year);
+
+            if (text.Length >= yearIndex + 2)
+            {
+                string halfYear = text.Substring(yearIndex + 1, 1);
+                if (Enum.IsDefined(typeof(HalfYear), halfYear))
+                    group.HalfYearOfStudy = (HalfYear)Enum.Parse(typeof(HalfYear), halfYear);
+
+                if (text.Length >= yearIndex + 3)
+                {
+                    group.Number = text.Substring(yearIndex + 2);
+                }
+            }
+            return group;
         }
 
         private int GetOptionalPackageFromCell(string text)

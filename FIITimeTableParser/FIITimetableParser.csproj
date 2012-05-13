@@ -8,8 +8,8 @@
     <ProjectGuid>{98158042-D2B8-457F-9F99-9CDC81460F52}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FIITimeTableParser</RootNamespace>
-    <AssemblyName>FIITimeTableParser</AssemblyName>
+    <RootNamespace>FIITimetableParser</RootNamespace>
+    <AssemblyName>FIITimetableParser</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exporter.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
