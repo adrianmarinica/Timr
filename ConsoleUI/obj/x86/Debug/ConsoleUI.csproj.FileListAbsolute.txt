@@ -1,12 +1,10 @@
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\ConsoleUI.exe
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\ConsoleUI.pdb
-C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\BusinessLayer.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\FIITimeTableParser.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\Logger.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\Objects.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\TimrCrypt.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\HtmlAgilityPack.dll
-C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\BusinessLayer.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\FIITimeTableParser.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\Logger.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\Objects.pdb
@@ -14,3 +12,5 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\T
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\obj\x86\Debug\ConsoleUI.exe
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\obj\x86\Debug\ConsoleUI.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\BusinessLogic.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Debug\BusinessLogic.pdb

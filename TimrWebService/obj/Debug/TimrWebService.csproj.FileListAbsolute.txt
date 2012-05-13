@@ -3,3 +3,12 @@ c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\bin\Ti
 c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\obj\Debug\ResolveAssemblyReference.cache
 c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\obj\Debug\TimrWebService.dll
 c:\users\adrian\documents\visual studio 2010\Projects\Timr\TimrWebService\obj\Debug\TimrWebService.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\BusinessLogic.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\Objects.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\FIITimetableParser.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\HtmlAgilityPack.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\Logger.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\BusinessLogic.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\Objects.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\FIITimetableParser.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\Logger.pdb

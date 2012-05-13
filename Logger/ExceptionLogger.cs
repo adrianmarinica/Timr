@@ -12,7 +12,7 @@ namespace Logger
         {
             try
             {
-                using (StreamWriter writer = new StreamWriter("LogException.txt", true))
+                using (StreamWriter writer = new StreamWriter(@Properties.Settings.Default.ExceptionLogFilePath, true))
                 {
                     writer.Write(ex.ToString());
                 }
@@ -28,7 +28,7 @@ namespace Logger
         {
             try
             {
-                using (StreamWriter writer = new StreamWriter("LogException.txt", true))
+                using (StreamWriter writer = new StreamWriter(@Properties.Settings.Default.ExceptionLogFilePath, true))
                 {
                     writer.Write(text);
                 }

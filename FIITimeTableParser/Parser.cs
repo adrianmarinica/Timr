@@ -30,7 +30,7 @@ namespace FIITimetableParser
             try
             {
                 HtmlWeb hw = new HtmlWeb();
-                HtmlDocument doc = hw.Load(String.Format("http://thor.info.uaic.ro/~orar/participanti/orar_{0}{1}.html", tempYear, halfYear));
+                HtmlDocument doc = hw.Load(String.Format("http://thor.info.uaic.ro/~orar/participanti/orar_{0}{1}.html", tempYear, tempHalfYear));
                 doc.DocumentNode.InnerHtml = doc.DocumentNode.InnerHtml.Replace("\r\n", "");
 
                 timetable = ParseTable(doc, TimetableType.Year);

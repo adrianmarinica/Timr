@@ -9,7 +9,7 @@ namespace FIITimetableParser
 {
     public class Exporter
     {
-        public static string ConvertToXML(List<TimetableItem> timetable)
+        public string ConvertToXML(List<TimetableItem> timetable)
         {
             if (timetable != null)
             {
@@ -18,7 +18,7 @@ namespace FIITimetableParser
             return String.Empty;
         }
 
-        public static XDocument ConvertToXDocument(List<TimetableItem> timetable)
+        public XDocument ConvertToXDocument(List<TimetableItem> timetable)
         {
             if (timetable != null)
             {
@@ -27,7 +27,7 @@ namespace FIITimetableParser
             return new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
         }
 
-        private static XDocument GetXMLFromTimetable(List<TimetableItem> timetable)
+        private XDocument GetXMLFromTimetable(List<TimetableItem> timetable)
         {
             XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
             XElement rootTimetable = new XElement("timetable");
@@ -43,8 +43,8 @@ namespace FIITimetableParser
             foreach (TimetableItem item in timetable)
             {
                 XElement timetableSubitem = new XElement("tableItem");
-                timetableSubitem.Add(new XElement("startTime", item.StartTime.ToShortTimeString()));
-                timetableSubitem.Add(new XElement("endTime", item.EndTime.ToShortTimeString()));
+                timetableSubitem.Add(new XElement("startTime", item.StartTime.ToString("HH:mm")));
+                timetableSubitem.Add(new XElement("endTime", item.EndTime.ToString("HH:mm")));
                 timetableSubitem.Add(new XElement("className", item.ClassName));
                 timetableSubitem.Add(new XElement("classType", (int)item.TypeOfClass));
                 timetableSubitem.Add(new XElement("teacherName", item.TeacherName));

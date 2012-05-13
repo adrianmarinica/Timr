@@ -3,3 +3,4 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\bin\Debug\Logg
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\obj\Debug\Logger.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\obj\Debug\Logger.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\bin\Debug\Logger.dll.config
