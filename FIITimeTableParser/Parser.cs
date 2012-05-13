@@ -62,79 +62,74 @@ namespace FIITimetableParser
         {
 
             List<TimetableItem> timetable = new List<TimetableItem>();
-
-
-
-            //            if(document.DocumentNode.ChildNodes.Count >= 2)
-            //            {
-            //                HtmlNode html = document.DocumentNode.ChildNodes[1];
-            //                if(html.ChildNodes
-            //            }
             if (document.DocumentNode.Descendants("table").Count() > 0)
             {
-                DayOfWeek day = DayOfWeek.Monday;
-                foreach (HtmlNode tableRow in document.DocumentNode.Descendants("table").ElementAt(0).Descendants("tr"))
+                foreach (HtmlNode table in document.DocumentNode.Descendants("table"))
                 {
-                    if (tableRow.Attributes.Count == 0)
+                    DayOfWeek day = DayOfWeek.Monday;
+                    foreach (HtmlNode tableRow in table.Descendants("tr"))
                     {
-                        TimetableItem item = null;
-                        int index = 0;
-                        foreach (HtmlNode tableCell in tableRow.Descendants("td"))
+                        if (tableRow.Attributes.Count == 0)
                         {
-                            string innerText = tableCell.InnerText.Trim();
-                            if (tableCell.Attributes.Count > 0 && tableCell.Attributes[0].Value == "10")
+                            TimetableItem item = null;
+                            int index = 0;
+                            foreach (HtmlNode tableCell in tableRow.Descendants("td"))
                             {
-                                day = new DayOfWeek();
-                                day = GetDayFromCell(innerText);
-                            }
-                            else
-                            {
-                                switch (index)
+                                string innerText = tableCell.InnerText.Trim();
+                                if (tableCell.Attributes.Count > 0 && tableCell.Attributes[0].Value == "10")
                                 {
-                                    case 0:
-                                        item = new TimetableItem();
-                                        item.Day = day;
-                                        int startHours;
-                                        int startMinutes;
-                                        if (Int32.TryParse(innerText.Substring(0, 2), out startHours) &&
-                                            Int32.TryParse(innerText.Substring(3, 2), out startMinutes))
-                                        {
-                                            item.StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, startHours, startMinutes, 0);
-                                        }
-                                        break;
-                                    case 1:
-                                        int endHours;
-                                        int endMinutes;
-                                        if (Int32.TryParse(innerText.Substring(0, 2), out endHours) &&
-                                            Int32.TryParse(innerText.Substring(3, 2), out endMinutes))
-                                        {
-                                            item.EndTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, endHours, endMinutes, 0);
-                                        }
-                                        break;
-                                    case 2:
-                                        item.ClassName = innerText;
-                                        break;
-                                    case 3:
-                                        item.TypeOfClass = GetClassTypeFromCell(innerText);
-                                        break;
-                                    case 4:
-                                        item.TeacherName = innerText;
-                                        break;
-                                    case 5:
-                                        item.RoomNumber = innerText;
-                                        break;
-                                    case 6:
-                                        item.Frequency = GetFrequencyFromCell(innerText);
-                                        break;
-                                    case 7:
-                                        item.OptionalPackage = GetOptionalPackageFromCell(innerText);
-                                        break;
+                                    day = new DayOfWeek();
+                                    day = GetDayFromCell(innerText);
                                 }
-                                index++;
+                                else
+                                {
+                                    switch (index)
+                                    {
+                                        case 0:
+                                            item = new TimetableItem();
+                                            item.Day = day;
+                                            int startHours;
+                                            int startMinutes;
+                                            if (Int32.TryParse(innerText.Substring(0, 2), out startHours) &&
+                                                Int32.TryParse(innerText.Substring(3, 2), out startMinutes))
+                                            {
+                                                item.StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, startHours, startMinutes, 0);
+                                            }
+                                            break;
+                                        case 1:
+                                            int endHours;
+                                            int endMinutes;
+                                            if (Int32.TryParse(innerText.Substring(0, 2), out endHours) &&
+                                                Int32.TryParse(innerText.Substring(3, 2), out endMinutes))
+                                            {
+                                                item.EndTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, endHours, endMinutes, 0);
+                                            }
+                                            break;
+                                        case 2:
+                                            item.ClassName = innerText;
+                                            break;
+                                        case 3:
+                                            item.TypeOfClass = GetClassTypeFromCell(innerText);
+                                            break;
+                                        case 4:
+                                            item.TeacherName = innerText;
+                                            break;
+                                        case 5:
+                                            item.RoomNumber = innerText;
+                                            break;
+                                        case 6:
+                                            item.Frequency = GetFrequencyFromCell(innerText);
+                                            break;
+                                        case 7:
+                                            item.OptionalPackage = GetOptionalPackageFromCell(innerText);
+                                            break;
+                                    }
+                                    index++;
+                                }
                             }
+                            if (item != null)
+                                timetable.Add(item);
                         }
-                        if (item != null)
-                            timetable.Add(item);
                     }
                 }
             }
@@ -198,6 +193,5 @@ namespace FIITimetableParser
         }
 
         #endregion
-
     }
 }

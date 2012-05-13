@@ -16,7 +16,6 @@ namespace Objects
         public ClassFrequency Frequency { get; set; }
         public bool IsOptional
         {
-            
             get
             {
                 return (OptionalPackage != -1) ? true : false;

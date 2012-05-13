@@ -12,7 +12,7 @@ namespace ConsoleUI
         {
             Parser parser = new Parser();
             DateTime aa = DateTime.Now;
-            List<TimetableItem> list = parser.GetTimetable(StudyYear.I2, "B7");
+            List<TimetableItem> list = parser.GetTimetable(StudyYear.MIS1, "1");
             DateTime bb = DateTime.Now;
             Console.WriteLine((bb-aa).TotalMilliseconds);
 
