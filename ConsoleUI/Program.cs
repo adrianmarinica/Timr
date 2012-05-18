@@ -19,7 +19,6 @@ namespace ConsoleUI
             List<TimetableItem> list4 = parser.GetTimetableForYear(StudyYear.I2, HalfYear.B);
             List<TimetableItem> list5 = parser.GetTimetableForGroup(StudyYear.I3, HalfYear.B, "3");
             DateTime bb = DateTime.Now;
-            Console.WriteLine((bb-aa).TotalMilliseconds);
             
             list.AddRange(list2);
             list.AddRange(list3);
@@ -36,6 +35,8 @@ namespace ConsoleUI
             Exporter exporter = new Exporter();
             string result = exporter.ConvertToXML(list);
             Console.WriteLine(result);
+            
+            Console.WriteLine((bb - aa).TotalMilliseconds);
             Console.Read();
             
         }        

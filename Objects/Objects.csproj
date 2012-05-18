@@ -45,6 +45,7 @@
     <Compile Include="FiiObjects\TimetableType.cs" />
     <Compile Include="FiiObjects\Year.cs" />
     <Compile Include="GlobalTimetableItem.cs" />
+    <Compile Include="MonitoredWebsite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimetableItem.cs" />
   </ItemGroup>

@@ -52,12 +52,18 @@ namespace FIITimetableParser
                 timetableSubitem.Add(new XElement("frequency", (int)item.Frequency));
                 timetableSubitem.Add(new XElement("optionalPackage", item.OptionalPackage));
 
-                XElement group = new XElement("group");
-                group.Add(new XElement("yearOfStudy", (int)item.StudyGroup.YearOfStudy));
-                group.Add(new XElement("halfYearOfStudy", item.StudyGroup.HalfYearOfStudy));
-                group.Add(new XElement("groupNumber", item.StudyGroup.Number));
+                XElement groups = new XElement("groups");
 
-                timetableSubitem.Add(group);
+                foreach (Group groupItem in item.StudyGroups)
+                {
+                    XElement group = new XElement("group");
+                    group.Add(new XElement("yearOfStudy", (int)groupItem.YearOfStudy));
+                    group.Add(new XElement("halfYearOfStudy", groupItem.HalfYearOfStudy));
+                    group.Add(new XElement("groupNumber", groupItem.Number));
+                    groups.Add(group);
+                }
+
+                timetableSubitem.Add(groups);
 
                 switch (item.Day)
                 {

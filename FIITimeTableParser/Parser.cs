@@ -14,7 +14,7 @@ namespace FIITimetableParser
     {
         public Parser()
         {
-
+            
         }
 
         #region PublicMethods
@@ -130,7 +130,7 @@ namespace FIITimetableParser
                                         case 2:
                                             if (type == TimetableType.Year)
                                             {
-                                                item.StudyGroup = GetGroupFromCell(innerText);
+                                                item.StudyGroups = GetGroupsFromCell(innerText);
                                                 index--;
                                                 type = TimetableType.Group;
                                                 isDirty = true;
@@ -140,12 +140,13 @@ namespace FIITimetableParser
                                                 item.ClassName = innerText;
                                                 if (item.StudyGroup == null)
                                                 {
-                                                    item.StudyGroup = new Group
+                                                    item.StudyGroups = new List<Group>();
+                                                    item.StudyGroups.Add(new Group
                                                     {
                                                         YearOfStudy = studyYear,
                                                         HalfYearOfStudy = halfYear,
                                                         Number = groupNumber
-                                                    };
+                                                    });
                                                 }
                                                 if (isDirty)
                                                     type = TimetableType.Year;
@@ -200,6 +201,37 @@ namespace FIITimetableParser
                 }
             }
             return group;
+        }
+
+        private List<Group> GetGroupsFromCell(string text)
+        {
+            List<Group> groups = new List<Group>();
+            string[] texts = text.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < texts.Length ; i++)
+            {
+                string item = texts[i];
+                item = item.Trim();
+                Group group = new Group();
+                int yearIndex = item.IndexOfAny(new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' });
+                string year = item.Substring(0, yearIndex + 1);
+
+                if (Enum.IsDefined(typeof(StudyYear), year))
+                    group.YearOfStudy = (StudyYear)Enum.Parse(typeof(StudyYear), year);
+
+                if (item.Length >= yearIndex + 2)
+                {
+                    string halfYear = item.Substring(yearIndex + 1, 1);
+                    if (Enum.IsDefined(typeof(HalfYear), halfYear))
+                        group.HalfYearOfStudy = (HalfYear)Enum.Parse(typeof(HalfYear), halfYear);
+
+                    if (item.Length >= yearIndex + 3)
+                    {
+                        group.Number = item.Substring(yearIndex + 2);
+                    }
+                }
+                groups.Add(group);
+            }
+            return groups;
         }
 
         private int GetOptionalPackageFromCell(string text)

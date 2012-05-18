@@ -1,0 +1,5 @@
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\bin\Debug\WebsiteMonitor.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\bin\Debug\WebsiteMonitor.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\obj\Debug\WebsiteMonitor.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\obj\Debug\WebsiteMonitor.pdb

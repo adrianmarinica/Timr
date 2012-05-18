@@ -23,8 +23,16 @@ namespace Objects
         }
         public int OptionalPackage { get; set; }
         public DayOfWeek Day { get; set; }
-        public Group StudyGroup { get; set; }
-
+        public Group StudyGroup
+        {
+            get
+            {
+                if (StudyGroups != null)
+                    return StudyGroups.ElementAt(0);
+                return null;
+            }
+        }
+        public List<Group> StudyGroups { get; set; }
         public TimetableItem()
         {
             ClassName = String.Empty;
