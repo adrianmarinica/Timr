@@ -1,7 +1,7 @@
-c:\users\adrian\documents\visual studio 2010\Projects\Timr\Timr\bin\Timr.dll
-c:\users\adrian\documents\visual studio 2010\Projects\Timr\Timr\bin\Timr.pdb
-c:\users\adrian\documents\visual studio 2010\Projects\Timr\Timr\bin\EntityFramework.dll
-c:\users\adrian\documents\visual studio 2010\Projects\Timr\Timr\bin\EntityFramework.xml
-c:\users\adrian\documents\visual studio 2010\Projects\Timr\Timr\obj\Debug\ResolveAssemblyReference.cache
-c:\users\adrian\documents\visual studio 2010\Projects\Timr\Timr\obj\Debug\Timr.dll
-c:\users\adrian\documents\visual studio 2010\Projects\Timr\Timr\obj\Debug\Timr.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Timr\bin\Timr.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Timr\bin\Timr.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Timr\bin\EntityFramework.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Timr\bin\EntityFramework.xml
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Timr\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Timr\obj\Debug\Timr.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Timr\obj\Debug\Timr.pdb

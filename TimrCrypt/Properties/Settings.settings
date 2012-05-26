@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TimrCrypt.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="s" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">asf</Value>
+    </Setting>
+    <Setting Name="passPhrase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">t1m3ki77er</Value>
+    </Setting>
+    <Setting Name="saltValue" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">re77ik3m1t</Value>
+    </Setting>
+    <Setting Name="initVector" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">si2(5%)If#UaysC2</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

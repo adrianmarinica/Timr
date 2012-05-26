@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebService-Publish\WS2012-05-25" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="TimrService.asmx" publishTime="05/13/2012 20:18:42" />
+    <file relUrl="bin/BusinessLogic.pdb" publishTime="05/24/2012 23:10:02" />
+    <file relUrl="bin/Logger.dll" publishTime="05/24/2012 23:10:01" />
+    <file relUrl="bin/TimrWebService.dll" publishTime="05/25/2012 00:12:57" />
+    <file relUrl="bin/BusinessLogic.dll" publishTime="05/24/2012 23:10:02" />
+    <file relUrl="bin/HtmlAgilityPack.dll" publishTime="05/07/2010 11:32:56" />
+    <file relUrl="bin/FIITimetableParser.pdb" publishTime="05/24/2012 23:10:02" />
+    <file relUrl="bin/FIITimetableParser.dll" publishTime="05/24/2012 23:10:02" />
+    <file relUrl="bin/Objects.dll" publishTime="05/24/2012 23:10:01" />
+    <file relUrl="Web.config" publishTime="05/25/2012 00:12:57" />
+    <file relUrl="bin/TimrWebService.pdb" publishTime="05/25/2012 00:12:57" />
+    <file relUrl="bin/Objects.pdb" publishTime="05/24/2012 23:10:01" />
+    <file relUrl="bin/Logger.pdb" publishTime="05/24/2012 23:10:01" />
+  </publishProfile>
+</publishData>

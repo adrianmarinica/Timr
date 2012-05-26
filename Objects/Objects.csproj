@@ -45,9 +45,14 @@
     <Compile Include="FiiObjects\TimetableType.cs" />
     <Compile Include="FiiObjects\Year.cs" />
     <Compile Include="GlobalTimetableItem.cs" />
+    <Compile Include="MongoDBObject.cs" />
     <Compile Include="MonitoredWebsite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Teacher.cs" />
     <Compile Include="TimetableItem.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserTypes.cs" />
+    <Compile Include="Website.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

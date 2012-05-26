@@ -32,5 +32,25 @@ namespace TimrWebService
             return bl.GetXMLTimetableForMastersYear((StudyYear)year);
         }
 
+        [WebMethod]
+        public bool InsertUser(string username, string password, string email, UserTypes userType)
+        {
+            UsersBL bl = new UsersBL();
+            return bl.InsertUser(username, password, email, userType);
+        }
+
+        [WebMethod]
+        public bool ValidateUser(string username, string password)
+        {
+            UsersBL bl = new UsersBL();
+            return bl.ValidateUser(username, password);
+        }
+
+        [WebMethod]
+        public void DeleteUser(string username, string password)
+        {
+            UsersBL bl = new UsersBL();
+            bl.DeleteUser(username, password);
+        }
     }
 }

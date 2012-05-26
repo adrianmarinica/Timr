@@ -1,0 +1,6 @@
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\bin\Release\Logger.dll.config
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\bin\Release\Logger.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\bin\Release\Logger.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\obj\Release\Logger.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Logger\obj\Release\Logger.pdb

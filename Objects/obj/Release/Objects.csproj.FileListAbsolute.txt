@@ -1,0 +1,5 @@
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\bin\Release\Objects.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\bin\Release\Objects.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\obj\Release\Objects.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\obj\Release\Objects.pdb

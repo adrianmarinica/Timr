@@ -1,0 +1,7 @@
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\bin\Release\WebsiteMonitor.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\bin\Release\WebsiteMonitor.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\bin\Release\Objects.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\bin\Release\Objects.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\obj\Release\WebsiteMonitor.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\WebsiteMonitor\obj\Release\WebsiteMonitor.pdb

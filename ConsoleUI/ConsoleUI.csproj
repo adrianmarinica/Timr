@@ -49,6 +49,10 @@
       <Project>{08F4DA11-758E-409A-B197-1363D2534614}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{156DFB0D-350A-48BD-B72E-18F3255C54D5}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FIITimeTableParser\FIITimetableParser.csproj">
       <Project>{98158042-D2B8-457F-9F99-9CDC81460F52}</Project>
       <Name>FIITimetableParser</Name>

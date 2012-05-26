@@ -1,0 +1,10 @@
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Release\FIITimetableParser.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Release\FIITimetableParser.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Release\HtmlAgilityPack.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Release\Logger.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Release\Objects.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Release\Logger.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Release\Objects.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\obj\Release\FIITimetableParser.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\obj\Release\FIITimetableParser.pdb
