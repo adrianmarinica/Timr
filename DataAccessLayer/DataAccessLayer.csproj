@@ -49,6 +49,7 @@
     <Compile Include="Collections\UsersCollection.cs" />
     <Compile Include="Connection\ConnectionSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SitesDAL.cs" />
     <Compile Include="TestDAL.cs" />
     <Compile Include="Connection\TimrDatabase.cs" />
     <Compile Include="UsersDAL.cs" />

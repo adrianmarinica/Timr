@@ -5,6 +5,7 @@ using System.Text;
 using FIITimetableParser;
 using Objects;
 using DataAccessLayer;
+using MongoDB.Driver;
 
 namespace ConsoleUI
 {
@@ -40,18 +41,23 @@ namespace ConsoleUI
             //Console.WriteLine((bb - aa).TotalMilliseconds);
             //Console.Read();
 
-             //TestDAL dal = new TestDAL();
-             //Console.WriteLine(dal.a());
+            //TestDAL dal = new TestDAL();
+            //Console.WriteLine(dal.a());
 
-            UsersDAL uDAL = new UsersDAL();
-            uDAL.InsertUser(new User
-            {
-                Email = "apmarinica@gmail.com",
-                _id = "adrian",
-                Password = "adrian",
-                UserType = UserTypes.Sysop
-            });
-            uDAL.ValidateUser("adrian", "jorj");
-        }        
+            //UsersDAL uDAL = new UsersDAL();
+            //uDAL.InsertUser(new User
+            //{
+            //    Email = "apmarinica@gmail.com",
+            //    _id = "adrian",
+            //    Password = "adrian",
+            //    UserType = UserTypes.Sysop
+            //});
+            //uDAL.ValidateUser("adrian", "jorj");
+
+
+            var a = TimrDatabase.Database.GetCollection("astasgasg");
+            int asfasf = 5;
+            asfasf++;
+        }
     }
 }

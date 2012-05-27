@@ -13,7 +13,7 @@ namespace DataAccessLayer
     {
         public bool InsertUser(User user)
         {
-            var userExists = Query.Exists("Username", true);
+            var userExists = Query.Exists(Users.Username.Key, true);
 
             if (UsersCollection.Collection.FindAs<User>(userExists).Count() == 0)
             {
@@ -25,7 +25,7 @@ namespace DataAccessLayer
 
         public void DeleteUser(string username, string password)
         {
-            var deleteUsername = Query.EQ("_id", username);
+            var deleteUsername = Query.EQ(Users.Id.Key, username);
             var deletePassword = Query.EQ(Users.Password.Key, password);
             var deleteUser = Query.And(deleteUsername, deletePassword);
             UsersCollection.Collection.Remove(deleteUser);
@@ -33,7 +33,7 @@ namespace DataAccessLayer
 
         public bool ValidateUser(string username, string password)
         {
-            var usernameExists = Query.EQ("_id", username);
+            var usernameExists = Query.EQ(Users.Id.Key, username);
             var passwordExists = Query.EQ(Users.Password.Key, password);
             var userIsValid = Query.And(usernameExists, passwordExists);
 
@@ -46,8 +46,8 @@ namespace DataAccessLayer
 
         public void UpdateUser(User user)
         {
-            var updateUser = Query.EQ("_id", user._id.ToString());
-            var update = Update.Set("_id", user._id.ToString()).
+            var updateUser = Query.EQ(Users.Id.Key, user._id.ToString());
+            var update = Update.Set(Users.Id.Key, user._id.ToString()).
                                 Set(Users.Password.Key, user.Password).
                                 Set(Users.Email.Key, user.Email);
 

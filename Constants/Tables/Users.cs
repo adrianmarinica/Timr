@@ -6,7 +6,7 @@ using MongoDB.Bson;
 
 namespace Constants.Tables
 {
-    public sealed class Users
+    public sealed class Users : BaseTable
     {
         public sealed class Username
         {
