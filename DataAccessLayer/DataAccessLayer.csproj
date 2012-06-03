@@ -37,6 +37,9 @@
     <Reference Include="MongoDB.Driver">
       <HintPath>.\MongoDB.Driver.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -46,12 +49,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\FeedsCollection.cs" />
+    <Compile Include="Collections\MonitoredWebsitesCollection.cs" />
+    <Compile Include="Collections\FiiTimetableCollection.cs" />
+    <Compile Include="Collections\NotificationsCollection.cs" />
+    <Compile Include="Collections\TeacherRequestsCollection.cs" />
     <Compile Include="Collections\UsersCollection.cs" />
     <Compile Include="Connection\ConnectionSettings.cs" />
+    <Compile Include="FeedsDAL.cs" />
+    <Compile Include="NotificationsDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SitesDAL.cs" />
-    <Compile Include="TestDAL.cs" />
+    <Compile Include="MonitoredWebsitesDAL.cs" />
+    <Compile Include="TeacherRequestsDAL.cs" />
     <Compile Include="Connection\TimrDatabase.cs" />
+    <Compile Include="FiiTimetableDAL.cs" />
     <Compile Include="UsersDAL.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,10 +70,17 @@
       <Project>{4AC5BBC3-4434-4973-B5EB-0F06A7EA0C08}</Project>
       <Name>Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FIITimeTableParser\FIITimetableParser.csproj">
+      <Project>{98158042-D2B8-457F-9F99-9CDC81460F52}</Project>
+      <Name>FIITimetableParser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Objects\Objects.csproj">
       <Project>{8397F207-1A94-4545-BEB2-C31087150525}</Project>
       <Name>Objects</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

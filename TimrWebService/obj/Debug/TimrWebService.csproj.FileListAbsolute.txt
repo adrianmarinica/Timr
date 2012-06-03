@@ -12,3 +12,13 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\Bu
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\Objects.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\FIITimetableParser.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\Logger.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\DataAccessLayer.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\WebsiteMonitor.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Driver.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Bson.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\DataAccessLayer.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\WebsiteMonitor.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Driver.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Driver.xml
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Bson.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Bson.xml

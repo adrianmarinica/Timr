@@ -18,3 +18,5 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Rel
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Release\MongoDB.Bson.xml
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Release\MongoDB.Driver.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Release\MongoDB.Driver.xml
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Release\WebsiteMonitor.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Release\WebsiteMonitor.pdb

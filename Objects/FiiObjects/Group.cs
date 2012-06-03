@@ -15,5 +15,35 @@ namespace Objects
         {
             Number = String.Empty;
         }
+
+        public bool IsContainedIn(Group feedGroup)
+        {
+            bool contained = false;
+            if (!String.IsNullOrEmpty(feedGroup.Number)) // it is meant for specific group
+            {
+                if (this.Number == feedGroup.Number)
+                {
+                    if (this.HalfYearOfStudy == feedGroup.HalfYearOfStudy &&
+                        this.YearOfStudy == feedGroup.YearOfStudy)
+                        contained = true;
+                }
+            }
+            else if (feedGroup.HalfYearOfStudy != HalfYear.None)
+            {
+                if (this.HalfYearOfStudy == feedGroup.HalfYearOfStudy)
+                {
+                    if (this.YearOfStudy == feedGroup.YearOfStudy)
+                        contained = true;
+                }
+            }
+            else if (feedGroup.YearOfStudy != StudyYear.None)
+            {
+                if (this.YearOfStudy == feedGroup.YearOfStudy)
+                {
+                    contained = true;
+                }
+            }
+            return contained;
+        }
     }
 }

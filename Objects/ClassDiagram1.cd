@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Objects.Faculty">
+    <Position X="5.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Faculty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.Feed">
+    <Position X="14.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAIAAAAAAAIAAJAAA=</HashCode>
+      <FileName>Feed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.FeedNotification">
+    <Position X="20" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FeedNotification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.Group">
+    <Position X="28.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAEACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FiiObjects\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.GenericGroup">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GenericGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.GlobalTimetableItem">
+    <Position X="26.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GlobalTimetableItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.MongoDBObject">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MongoDBObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.MonitoredWebsite">
+    <Position X="7.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MonitoredWebsite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.MonitoredWebsiteNotification">
+    <Position X="17" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MonitoredWebsiteNotification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.Notification">
+    <Position X="19.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.Student">
+    <Position X="0.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAoAAAAAEAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.Teacher">
+    <Position X="3" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.TeacherRequest">
+    <Position X="10" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TeacherRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.TimetableItem">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAIACAAAAEEAAAIAAAIIAgAAAAICAAAAAQABA=</HashCode>
+      <FileName>TimetableItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.TimetableNotification">
+    <Position X="22.25" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>TimetableNotification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.User">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Objects.UserNotification">
+    <Position X="12.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>UserNotification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Objects.ClassFrequency">
+    <Position X="25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>ClassFrequency.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Objects.ClassType" Collapsed="true">
+    <Position X="26.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAIAAAAAgIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClassType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Objects.TimetableType">
+    <Position X="28.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FiiObjects\TimetableType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Objects.StudyYear">
+    <Position X="25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwABAAYAAYAAAAAAAAAAAIAAAAAAAEAAAAAAIEBAAA=</HashCode>
+      <FileName>FiiObjects\Year.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Objects.HalfYear">
+    <Position X="28.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAEAAAA=</HashCode>
+      <FileName>FiiObjects\Year.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Objects.TimetableNotificationType">
+    <Position X="26.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAgAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TimetableNotificationType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Objects.UserTypes">
+    <Position X="26.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAQAAAAIAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>UserTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -5,8 +5,15 @@ using System.Text;
 
 namespace Objects
 {
-    public class Teacher
+    public class Teacher : User
     {
-        public string Name { get; set; }
+        public List<UserNotification> Notifications { get; set; }
+        public List<string> SubmittedFeeds { get; set; }
+        public Teacher()
+        {
+            Notifications = new List<UserNotification>();
+            SubmittedFeeds = new List<string>();
+            UserType = UserTypes.Teacher;
+        }
     }
 }

@@ -3,3 +3,4 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrCrypt\bin\Debug\T
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrCrypt\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrCrypt\obj\Debug\TimrCrypt.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrCrypt\obj\Debug\TimrCrypt.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrCrypt\bin\Debug\TimrCrypt.dll.config

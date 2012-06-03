@@ -3,3 +3,6 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\bin\Debug\Obj
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\obj\Debug\Objects.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\obj\Debug\Objects.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\bin\Debug\MongoDB.Bson.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\bin\Debug\MongoDB.Bson.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\Objects\bin\Debug\MongoDB.Bson.xml

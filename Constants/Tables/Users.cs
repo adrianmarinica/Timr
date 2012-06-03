@@ -28,5 +28,10 @@ namespace Constants.Tables
             public const string Key = "Type";
             public const BsonType Type = BsonType.Int32;
         }
+        public sealed class SubscribedWebsites
+        {
+            public const string Key = "SubscribedWebsites";
+            public const BsonType Type = BsonType.String;
+        }
     }
 }

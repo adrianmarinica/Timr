@@ -8,3 +8,6 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bi
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\obj\Debug\FIITimeTableParser.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\obj\Debug\FIITimeTableParser.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Debug\MongoDB.Bson.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Debug\MongoDB.Bson.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\FIITimeTableParser\bin\Debug\MongoDB.Bson.xml

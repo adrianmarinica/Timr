@@ -10,34 +10,36 @@ namespace WebsiteMonitor
 {
     public class Monitor
     {
-        public List<Website> GetAllModifiedWebsites(int userId)
+        public List<MonitoredWebsite> FilterAllModifiedWebsites(List<MonitoredWebsite> list)
         {
-            List<Website> newList = new List<Website>();
-            List<Website> oldList = GetAllSubscribedWebsites(userId);
-            foreach (var site in oldList)
+            List<MonitoredWebsite> newList = new List<MonitoredWebsite>();
+            foreach (var site in list)
             {
-                string hash = GetMD5Hash(site.Address);
-                if(site.Hash != hash)
+                string hash = GetMD5Hash(site.Id);
+                if (site.HashedContent != hash)
                 {
-                    site.Hash = hash;
                     newList.Add(site);
                 }
             }
             return newList;
         }
 
-        private List<Website> GetAllSubscribedWebsites(int userId)
-        {
-            List<Website> list = new List<Website>();
-            return list;
-        }
-
-        private string GetMD5Hash(string URL)
+        public static string GetMD5Hash(string URL)
         {
             WebClient client = new WebClient();
-            string source = client.DownloadString(new Uri(URL, UriKind.Absolute));
+            string source;
+            try
+            {
+                source = client.DownloadString(new Uri(URL, UriKind.Absolute));
+            }
+            catch (WebException)
+            {
+                source = String.Empty;
+                return source;
+            }
+            
             MD5 md5 = MD5.Create();
-            byte[] sourceBytes = System.Text.Encoding.UTF8.GetBytes(source);
+            byte[] sourceBytes = Encoding.UTF8.GetBytes(source);
             byte[] hash = md5.ComputeHash(sourceBytes);
 
             StringBuilder sb = new StringBuilder();

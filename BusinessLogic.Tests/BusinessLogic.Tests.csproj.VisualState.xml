@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ShowCheckBoxes="false">
+  <TopNode>[0-1000]C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLogic.Tests\BusinessLogic.Tests.csproj</TopNode>
+  <SelectedNode>[0-1006]BusinessLogic.Tests</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLogic.Tests\BusinessLogic.Tests.csproj" Expanded="true" />
+    <Node UniqueName="[0-1004]C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLogic.Tests\bin\Debug\BusinessLogic.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1005]BusinessLogic" Expanded="true" />
+    <Node UniqueName="[0-1006]BusinessLogic.Tests" Expanded="true" />
+    <Node UniqueName="[0-1001]BusinessLogic.Tests.UsersBLTest" Expanded="true" />
+  </Nodes>
+</VisualState>

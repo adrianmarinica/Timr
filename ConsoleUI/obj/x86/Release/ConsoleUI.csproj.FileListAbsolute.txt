@@ -22,3 +22,5 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Release
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Release\MongoDB.Driver.xml
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Release\MongoDB.Bson.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Release\MongoDB.Bson.xml
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Release\WebsiteMonitor.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\ConsoleUI\bin\Release\WebsiteMonitor.pdb

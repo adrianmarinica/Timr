@@ -12,8 +12,6 @@ namespace Timr.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
-            TestDAL dal = new TestDAL();
-            dal.a();
             return View();
         }
 

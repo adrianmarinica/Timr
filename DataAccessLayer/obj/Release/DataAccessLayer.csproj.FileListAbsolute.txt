@@ -13,3 +13,8 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\R
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\Release\Objects.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\Release\Constants.dll
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\Release\Constants.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\Release\FIITimetableParser.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\Release\HtmlAgilityPack.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\Release\Logger.dll
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\Release\FIITimetableParser.pdb
+C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\bin\Release\Logger.pdb

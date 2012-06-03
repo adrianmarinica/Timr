@@ -21,14 +21,14 @@ namespace TimrWebService
         [WebMethod]
         public string GetTimetableForBachelorYear(StudyYear year, HalfYear halfYear)
         {
-            FIITimetableParserBL bl = new FIITimetableParserBL();
+            FiiTimetableBL bl = new FiiTimetableBL();
             return bl.GetXMLTimetableForBachelorYear(year, halfYear);
         }
 
         [WebMethod]
         public string GetTimetableForMastersYear(StudyYear year)
         {
-            FIITimetableParserBL bl = new FIITimetableParserBL();
+            FiiTimetableBL bl = new FiiTimetableBL();
             return bl.GetXMLTimetableForMastersYear((StudyYear)year);
         }
 
@@ -51,6 +51,67 @@ namespace TimrWebService
         {
             UsersBL bl = new UsersBL();
             bl.DeleteUser(username, password);
+        }
+
+        [WebMethod]
+        public List<MonitoredWebsite> GetAllMonitoredWebsites(string username)
+        {
+            MonitoredWebsitesBL bl = new MonitoredWebsitesBL();
+            return bl.GetAllSubscribedWebsites(username);
+        }
+
+        [WebMethod]
+        public List<MonitoredWebsite> GetAllModifiedWebsites(string username)
+        {
+            MonitoredWebsitesBL bl = new MonitoredWebsitesBL();
+            return bl.GetAllModifiedWebsites(username);
+        }
+
+        [WebMethod]
+        public List<UserNotification> GetAllUserNotifications(string username)
+        {
+            NotificationsBL bl = new NotificationsBL();
+            return bl.GetAllUserNotifications(username);
+        }
+
+        [WebMethod]
+        public Notification GetNotification(string notificationId)
+        {
+            NotificationsBL bl = new NotificationsBL();
+            return bl.GetNotification(notificationId);
+        }
+
+        [WebMethod]
+        public void SolveUserNotification(string notificationId, string username)
+        {
+            NotificationsBL bl = new NotificationsBL();
+            bl.SolveNotification(notificationId, username);
+        }
+
+        [WebMethod]
+        public void InsertPendingTeacherRequest(string facultyUsername, string teacherUsername)
+        {
+            TeacherRequest request = new TeacherRequest
+            {
+                FacultyUsername = facultyUsername,
+                TeacherUsername = teacherUsername,
+                DateSent = DateTime.Now
+            };
+            TeacherRequestsBL bl = new TeacherRequestsBL();
+            bl.InsertPendingTeacherRequest(request);
+        }
+
+        [WebMethod]
+        public void SolvePendingTeacherRequest(string facultyUsername, string teacherUsername)
+        {
+            TeacherRequest request = new TeacherRequest
+            {
+                FacultyUsername = facultyUsername,
+                TeacherUsername = teacherUsername,
+                DateSent = DateTime.Now
+            };
+            TeacherRequestsBL bl = new TeacherRequestsBL();
+            bl.SolveRequest(request);
         }
     }
 }

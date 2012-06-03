@@ -7,8 +7,15 @@ namespace Objects
 {
     public class MonitoredWebsite
     {
-        public string Link { get; set; }
-        public string Content { get; set; }
-        public string HashCheck { get; set; }
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public string HashedContent { get; set; }
+
+        public MonitoredWebsite()
+        {
+            Id = String.Empty;
+            Title = String.Empty;
+            HashedContent = String.Empty;
+        }
     }
 }

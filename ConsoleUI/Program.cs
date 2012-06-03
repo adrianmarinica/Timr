@@ -6,6 +6,8 @@ using FIITimetableParser;
 using Objects;
 using DataAccessLayer;
 using MongoDB.Driver;
+using BusinessLogic;
+using MongoDB.Driver.Builders;
 
 namespace ConsoleUI
 {
@@ -54,10 +56,35 @@ namespace ConsoleUI
             //});
             //uDAL.ValidateUser("adrian", "jorj");
 
-
-            var a = TimrDatabase.Database.GetCollection("astasgasg");
-            int asfasf = 5;
-            asfasf++;
+           // MonitoredWebsitesBL webDal = new MonitoredWebsitesBL();
+           // MonitoredWebsite website = new MonitoredWebsite { _id = "http://thor.info.uaic.ro/~busaco/", Owner = new Teacher { Name = "busaco" } };
+           // MonitoredWebsite website2 = new MonitoredWebsite { _id = "http://thor.info.uaic.ro/~rvlad/", Owner = new Teacher { Name = "rvlad" } };
+           // MonitoredWebsite website3 = new MonitoredWebsite { _id = "http://thor.info.uaic.ro/~iasimin/", Owner = new Teacher { Name = "iasimin" } };
+           // MonitoredWebsite website4 = new MonitoredWebsite { _id = "http://thor.info.uaic.ro/~croitoru/", Owner = new Teacher { Name = "ccroitoru" } };
+           // webDal.SaveMonitoredWebsite(website);
+           // webDal.SaveMonitoredWebsite(website2);
+           // webDal.SaveMonitoredWebsite(website3);
+           // webDal.SaveMonitoredWebsite(website4);
+            
+            //var a = TimrDatabase.Database.GetCollection("astasgasg");
+            //int asfasf = 5;
+            //asfasf++;
+            //
+            // User usrs = new User
+            // {
+            //     _id="adi",
+            //     Email="apmarinica@mgia.com",
+            //     Password="adi",
+            //     SubscribedWebsites = new List<string> { "http://thor.info.uaic.ro/~busaco/" },
+            //     UserType = UserTypes.Student
+            // };
+            // UsersBL ubl = new UsersBL();
+            // ubl.InsertUser("adi", "asdf", "asdf", UserTypes.Student);
+            // ubl.AddSubscribedWebsite("adi", "http://thor.info.uaic.ro/~busaco/", "busaco");
+             
+            var myQuery = Query.EQ("Owner.Name", "rvlad");
+            MonitoredWebsite site = DataAccessLayer.Collections.MonitoredWebsitesCollection.Collection.FindOneAs<MonitoredWebsite>(myQuery);
+            site.HashedContent = "a";
         }
     }
 }
