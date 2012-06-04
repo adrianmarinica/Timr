@@ -17,5 +17,3 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Deb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Debug\WebsiteMonitor.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Debug\MongoDB.Driver.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Debug\MongoDB.Driver.xml
-C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Debug\MongoDB.Bson.pdb
-C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\BusinessLayer\bin\Debug\MongoDB.Bson.xml

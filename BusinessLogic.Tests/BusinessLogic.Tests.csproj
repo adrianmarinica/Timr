@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="FeedsBLTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubjectsBLTest.cs" />
     <Compile Include="TeacherRequestsBLTest.cs" />
     <Compile Include="UsersBLTest.cs" />
   </ItemGroup>

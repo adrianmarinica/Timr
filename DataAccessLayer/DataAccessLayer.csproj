@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -53,6 +54,8 @@
     <Compile Include="Collections\MonitoredWebsitesCollection.cs" />
     <Compile Include="Collections\FiiTimetableCollection.cs" />
     <Compile Include="Collections\NotificationsCollection.cs" />
+    <Compile Include="Collections\RolesCollection.cs" />
+    <Compile Include="Collections\SubjectsCollection.cs" />
     <Compile Include="Collections\TeacherRequestsCollection.cs" />
     <Compile Include="Collections\UsersCollection.cs" />
     <Compile Include="Connection\ConnectionSettings.cs" />
@@ -60,6 +63,8 @@
     <Compile Include="NotificationsDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MonitoredWebsitesDAL.cs" />
+    <Compile Include="RolesDAL.cs" />
+    <Compile Include="SubjectsDAL.cs" />
     <Compile Include="TeacherRequestsDAL.cs" />
     <Compile Include="Connection\TimrDatabase.cs" />
     <Compile Include="FiiTimetableDAL.cs" />

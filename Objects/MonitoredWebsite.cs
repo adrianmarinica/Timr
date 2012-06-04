@@ -10,6 +10,9 @@ namespace Objects
         public string Id { get; set; }
         public string Title { get; set; }
         public string HashedContent { get; set; }
+        public DateTime LastModified { get; set; }
+        public Subject WebsiteSubject { get; set; }
+        public Teacher Owner { get; set; }
 
         public MonitoredWebsite()
         {

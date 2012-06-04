@@ -113,5 +113,19 @@ namespace TimrWebService
             TeacherRequestsBL bl = new TeacherRequestsBL();
             bl.SolveRequest(request);
         }
+
+        [WebMethod]
+        public string GetStudentAsXml(string username)
+        {
+            UsersBL bl = new UsersBL();
+            return bl.GetStudentAsXml(username);
+        }
+
+        [WebMethod]
+        public string GetTimetableForUser(string username)
+        {
+            UsersBL bl = new UsersBL();
+            return bl.GetTimetableForUserAsXml(username);
+        }
     }
 }

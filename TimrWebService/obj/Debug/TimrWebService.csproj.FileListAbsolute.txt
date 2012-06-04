@@ -20,5 +20,3 @@ C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\Da
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\WebsiteMonitor.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Driver.pdb
 C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Driver.xml
-C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Bson.pdb
-C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\TimrWebService\bin\MongoDB.Bson.xml

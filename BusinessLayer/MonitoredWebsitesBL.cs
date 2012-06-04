@@ -41,5 +41,10 @@ namespace BusinessLogic
             website.HashedContent = Monitor.GetMD5Hash(website.Id);
             dal.SaveMonitoredWebsite(website);
         }
+
+        public MonitoredWebsite GetWebsite(string website)
+        {
+            return dal.GetWebsite(website);
+        }
     }
 }

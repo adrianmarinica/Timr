@@ -60,5 +60,10 @@ namespace DataAccessLayer
             }
             return list;
         }
+
+        public MonitoredWebsite GetWebsite(string website)
+        {
+            return MonitoredWebsitesCollection.Collection.FindOneByIdAs<MonitoredWebsite>(website);
+        }
     }
 }

@@ -29,20 +29,20 @@ namespace FIITimetableParser
 
         private XDocument GetXMLFromTimetable(List<TimetableItem> timetable)
         {
-            XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-            XElement rootTimetable = new XElement("timetable");
+            var document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+            var rootTimetable = new XElement("timetable");
 
-            XElement monday = new XElement("monday");
-            XElement tuesday = new XElement("tuesday");
-            XElement wednesday = new XElement("wednesday");
-            XElement thursday = new XElement("thursday");
-            XElement friday = new XElement("friday");
-            XElement saturday = new XElement("saturday");
-            XElement sunday = new XElement("sunday");
+            var monday = new XElement("monday");
+            var tuesday = new XElement("tuesday");
+            var wednesday = new XElement("wednesday");
+            var thursday = new XElement("thursday");
+            var friday = new XElement("friday");
+            var saturday = new XElement("saturday");
+            var sunday = new XElement("sunday");
 
             foreach (TimetableItem item in timetable)
             {
-                XElement timetableSubitem = new XElement("tableItem");
+                var timetableSubitem = new XElement("tableItem");
                 timetableSubitem.Add(new XElement("startTime", item.StartTime.ToString("HH:mm")));
                 timetableSubitem.Add(new XElement("endTime", item.EndTime.ToString("HH:mm")));
                 timetableSubitem.Add(new XElement("className", item.ClassName));
@@ -52,11 +52,11 @@ namespace FIITimetableParser
                 timetableSubitem.Add(new XElement("frequency", (int)item.Frequency));
                 timetableSubitem.Add(new XElement("optionalPackage", item.OptionalPackage));
 
-                XElement groups = new XElement("groups");
+                var groups = new XElement("groups");
 
                 foreach (Group groupItem in item.StudyGroups)
                 {
-                    XElement group = new XElement("group");
+                    var group = new XElement("group");
                     group.Add(new XElement("yearOfStudy", (int)groupItem.YearOfStudy));
                     group.Add(new XElement("halfYearOfStudy", groupItem.HalfYearOfStudy));
                     group.Add(new XElement("groupNumber", groupItem.Number));
