@@ -9,6 +9,6 @@ namespace Objects
     {
         public string Title { get; set; }
         public DateTime SentDate { get; set; }
-        public string Message { get; set; }
+        public NotificationTypes NotificationType { get; set; }
     }
 }

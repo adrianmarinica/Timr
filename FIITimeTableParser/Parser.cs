@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using Objects;
 using System.Net;
+using FIITimetableParser.FiiObjects;
 using Logger;
 using HtmlAgilityPack;
+using Objects;
 
 namespace FIITimetableParser
 {
@@ -19,9 +20,9 @@ namespace FIITimetableParser
 
         #region PublicMethods
 
-        public List<TimetableItem> GetTimetableForYear(StudyYear year, HalfYear halfYear = HalfYear.None)
+        public List<FiiTimetableItem> GetTimetableForYear(StudyYear year, HalfYear halfYear = HalfYear.None)
         {
-            List<TimetableItem> timetable;
+            List<FiiTimetableItem> timetable;
 
             string tempYear = Enum.GetName(typeof(StudyYear), year);
             string tempHalfYear = Enum.GetName(typeof(HalfYear), halfYear);
@@ -37,20 +38,20 @@ namespace FIITimetableParser
             }
             catch (WebException ex)
             {
-                Logger.ExceptionLogger.Log(ex);
+                ExceptionLogger.Log(ex);
                 timetable = null;
             }
             catch (NotSupportedException ex)
             {
-                Logger.ExceptionLogger.Log(ex);
+                ExceptionLogger.Log(ex);
                 timetable = null;
             }
             return timetable;
         }
 
-        public List<TimetableItem> GetTimetableForGroup(StudyYear year, HalfYear halfYear, string groupNumber)
+        public List<FiiTimetableItem> GetTimetableForGroup(StudyYear year, HalfYear halfYear, string groupNumber)
         {
-            List<TimetableItem> timetable;
+            List<FiiTimetableItem> timetable;
             string tempYear = Enum.GetName(typeof(StudyYear), year);
             string tempHalfYear = Enum.GetName(typeof(HalfYear), halfYear);
             if (tempHalfYear == "None")
@@ -58,19 +59,19 @@ namespace FIITimetableParser
 
             try
             {
-                HtmlWeb hw = new HtmlWeb();
-                HtmlDocument doc = hw.Load(String.Format("http://thor.info.uaic.ro/~orar/participanti/orar_{0}{1}{2}.html", tempYear, tempHalfYear, groupNumber));
+                var hw = new HtmlWeb();
+                var doc = hw.Load(String.Format("http://thor.info.uaic.ro/~orar/participanti/orar_{0}{1}{2}.html", tempYear, tempHalfYear, groupNumber));
                 doc.DocumentNode.InnerHtml = doc.DocumentNode.InnerHtml.Replace("\r\n", "");
                 timetable = ParseTable(doc, TimetableType.Group, year, halfYear, groupNumber);
             }
             catch (WebException ex)
             {
-                Logger.ExceptionLogger.Log(ex);
+                ExceptionLogger.Log(ex);
                 timetable = null;
             }
             catch (NotSupportedException ex)
             {
-                Logger.ExceptionLogger.Log(ex);
+                ExceptionLogger.Log(ex);
                 timetable = null;
             }
             return timetable;
@@ -80,10 +81,10 @@ namespace FIITimetableParser
 
         #region PrivateMethods
 
-        private List<TimetableItem> ParseTable(HtmlDocument document, TimetableType type, StudyYear studyYear = StudyYear.None, HalfYear halfYear = HalfYear.None, string groupNumber = "")
+        private List<FiiTimetableItem> ParseTable(HtmlDocument document, TimetableType type, StudyYear studyYear = StudyYear.None, HalfYear halfYear = HalfYear.None, string groupNumber = "")
         {
-            List<TimetableItem> timetable = new List<TimetableItem>();
-            if (document.DocumentNode.Descendants("table").Count() > 0)
+            var timetable = new List<FiiTimetableItem>();
+            if (document.DocumentNode.Descendants("table").Any())
             {
                 foreach (HtmlNode table in document.DocumentNode.Descendants("table"))
                 {
@@ -93,7 +94,7 @@ namespace FIITimetableParser
                         bool isDirty = false;
                         if (tableRow.Attributes.Count == 0)
                         {
-                            TimetableItem item = null;
+                            FiiTimetableItem item = null;
                             int index = 0;
                             foreach (HtmlNode tableCell in tableRow.Descendants("td"))
                             {
@@ -108,14 +109,14 @@ namespace FIITimetableParser
                                     switch (index)
                                     {
                                         case 0:
-                                            item = new TimetableItem();
+                                            item = new FiiTimetableItem();
                                             item.Day = day;
                                             int startHours;
                                             int startMinutes;
                                             if (Int32.TryParse(innerText.Substring(0, 2), out startHours) &&
                                                 Int32.TryParse(innerText.Substring(3, 2), out startMinutes))
                                             {
-                                                item.StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, startHours, startMinutes, 0);
+                                                item.StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, startHours, startMinutes, 0).ToString("HH:mm");
                                             }
                                             break;
                                         case 1:
@@ -124,7 +125,7 @@ namespace FIITimetableParser
                                             if (Int32.TryParse(innerText.Substring(0, 2), out endHours) &&
                                                 Int32.TryParse(innerText.Substring(3, 2), out endMinutes))
                                             {
-                                                item.EndTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, endHours, endMinutes, 0);
+                                                item.EndTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, endHours, endMinutes, 0).ToString("HH:mm");
                                             }
                                             break;
                                         case 2:
@@ -140,8 +141,8 @@ namespace FIITimetableParser
                                                 item.ClassName = innerText;
                                                 if (item.StudyGroup == null)
                                                 {
-                                                    item.StudyGroups = new List<Group>();
-                                                    item.StudyGroups.Add(new Group
+                                                    item.StudyGroups = new List<FiiGroup>();
+                                                    item.StudyGroups.Add(new FiiGroup
                                                     {
                                                         YearOfStudy = studyYear,
                                                         HalfYearOfStudy = halfYear,
@@ -180,9 +181,9 @@ namespace FIITimetableParser
             return timetable;
         }
 
-        private Group GetGroupFromCell(string text)
+        public FiiGroup GetGroupFromCell(string text)
         {
-            Group group = new Group();
+            FiiGroup group = new FiiGroup();
             int yearIndex = text.IndexOfAny(new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' });
             string year = text.Substring(0, yearIndex + 1);
 
@@ -203,15 +204,15 @@ namespace FIITimetableParser
             return group;
         }
 
-        private List<Group> GetGroupsFromCell(string text)
+        private List<FiiGroup> GetGroupsFromCell(string text)
         {
-            List<Group> groups = new List<Group>();
+            List<FiiGroup> groups = new List<FiiGroup>();
             string[] texts = text.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < texts.Length ; i++)
             {
                 string item = texts[i];
                 item = item.Trim();
-                Group group = new Group();
+                FiiGroup group = new FiiGroup();
                 int yearIndex = item.IndexOfAny(new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' });
                 string year = item.Substring(0, yearIndex + 1);
 
@@ -288,6 +289,30 @@ namespace FIITimetableParser
                 return DayOfWeek.Saturday;
             else
                 return DayOfWeek.Sunday;
+        }
+
+        public List<FiiTimetableItem> GetFullTimetable()
+        {
+            var parser = new Parser();
+            var list = new List<FiiTimetableItem>();
+            parser.GetTimetableForGroup(StudyYear.I1, HalfYear.A, "1");
+            list.AddRange(parser.GetTimetableForYear(StudyYear.I1, HalfYear.A));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.I1, HalfYear.B));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.I2, HalfYear.A));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.I2, HalfYear.B));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.I3, HalfYear.A));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.I3, HalfYear.B));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MIS1));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MIS2));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MLC1));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MLC2));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MOC1));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MOC2));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MSD1));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MSD2));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MSI1));
+            list.AddRange(parser.GetTimetableForYear(StudyYear.MSI2));
+            return list;
         }
 
         #endregion

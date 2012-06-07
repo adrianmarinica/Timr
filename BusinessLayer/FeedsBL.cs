@@ -22,14 +22,19 @@ namespace BusinessLogic
             return dal.GetFeedsForUser(username);
         }
 
-        public List<Feed> GetFeedsForGroup(Group group)
+        public List<Feed> GetFeedsForGroup(string facultyId, string groupId)
         {
-            return dal.GetFeedsForGroup(group);
+            return dal.GetFeedsForGroup(facultyId, groupId);
         }
 
         public void InsertFeed(Feed feed)
         {
             dal.InsertFeed(feed);
+        }
+
+        public Feed GetFeed(string feedId)
+        {
+            return dal.GetFeed(feedId);
         }
     }
 }

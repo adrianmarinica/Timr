@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Collections;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DataAccessLayer.Collections;
 using MongoDB.Bson;
 using Objects;
 
@@ -14,6 +16,11 @@ namespace DataAccessLayer
         public void InsertSubject(Subject subject)
         {
             SubjectsCollection.Collection.Insert(subject);
+        }
+
+        public List<Subject> GetAllSubjects()
+        {
+            return SubjectsCollection.Collection.FindAllAs<Subject>().ToList();
         }
     }
 }

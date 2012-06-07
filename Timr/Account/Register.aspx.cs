@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BusinessLogic;
 
 namespace Timr.Account
 {
@@ -23,7 +24,11 @@ namespace Timr.Account
             var rbListRoles = (DropDownList)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("Roles");
 
             if (rbListRoles.SelectedItem != null && rbListRoles.SelectedItem.Text != null)
+            {
                 Roles.AddUserToRole(RegisterUser.UserName, rbListRoles.SelectedItem.Text);
+                var usersBl = new UsersBL();
+                usersBl.UpdateUserType(Convert.ToInt32(rbListRoles.SelectedValue), RegisterUser.UserName);
+            }
 
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;
             if (String.IsNullOrEmpty(continueUrl))
@@ -32,6 +37,5 @@ namespace Timr.Account
             }
             Response.Redirect(continueUrl);
         }
-
     }
 }

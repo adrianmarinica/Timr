@@ -157,7 +157,8 @@ namespace TimrMembershipProvider
 
         public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            throw new NotImplementedException();
+            var usersBL = new UsersBL();
+            return usersBL.ChangePassword(username, oldPassword, newPassword);
         }
 
         public override string ResetPassword(string username, string answer)
@@ -173,7 +174,9 @@ namespace TimrMembershipProvider
         public override bool ValidateUser(string username, string password)
         {
             var usersBL = new UsersBL();
-            return usersBL.ValidateUser(username, password);
+            return (usersBL.ValidateUser(username, password, UserTypes.Student) ||
+                usersBL.ValidateUser(username, password, UserTypes.Teacher) ||
+                usersBL.ValidateUser(username, password, UserTypes.Faculty));
         }
 
         public override bool UnlockUser(string userName)

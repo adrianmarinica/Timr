@@ -42,12 +42,26 @@ namespace TimrRoleProvider
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
-            throw new System.NotImplementedException();
+            var rolesDAL = new RolesDAL();
+            foreach (var username in usernames)
+            {
+                foreach (var roleName in roleNames)
+                {
+                    rolesDAL.AddUserToRole(username, roleName);
+                }
+            }
         }
 
         public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
         {
-            throw new System.NotImplementedException();
+            var rolesDAL = new RolesDAL();
+            foreach (var username in usernames)
+            {
+                foreach (var roleName in roleNames)
+                {
+                    rolesDAL.RemoveUserFromRole(username, roleName);
+                }
+            }
         }
 
         public override string[] GetUsersInRole(string roleName)
@@ -64,7 +78,8 @@ namespace TimrRoleProvider
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch)
         {
-            throw new NotImplementedException();
+            var rolesDAL = new RolesDAL();
+            return rolesDAL.FindUsersInRole(roleName, usernameToMatch);
         }
 
         public override string ApplicationName

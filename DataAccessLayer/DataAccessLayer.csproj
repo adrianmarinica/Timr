@@ -57,6 +57,7 @@
     <Compile Include="Collections\RolesCollection.cs" />
     <Compile Include="Collections\SubjectsCollection.cs" />
     <Compile Include="Collections\TeacherRequestsCollection.cs" />
+    <Compile Include="Collections\TimetablesCollection.cs" />
     <Compile Include="Collections\UsersCollection.cs" />
     <Compile Include="Connection\ConnectionSettings.cs" />
     <Compile Include="FeedsDAL.cs" />
@@ -67,7 +68,7 @@
     <Compile Include="SubjectsDAL.cs" />
     <Compile Include="TeacherRequestsDAL.cs" />
     <Compile Include="Connection\TimrDatabase.cs" />
-    <Compile Include="FiiTimetableDAL.cs" />
+    <Compile Include="TimetablesDAL.cs" />
     <Compile Include="UsersDAL.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +79,10 @@
     <ProjectReference Include="..\FIITimeTableParser\FIITimetableParser.csproj">
       <Project>{98158042-D2B8-457F-9F99-9CDC81460F52}</Project>
       <Name>FIITimetableParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{9E24B077-E696-422D-9556-BD36A1C93BED}</Project>
+      <Name>Logger</Name>
     </ProjectReference>
     <ProjectReference Include="..\Objects\Objects.csproj">
       <Project>{8397F207-1A94-4545-BEB2-C31087150525}</Project>

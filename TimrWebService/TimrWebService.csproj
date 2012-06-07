@@ -76,6 +76,10 @@
       <Project>{08F4DA11-758E-409A-B197-1363D2534614}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FIITimeTableParser\FIITimetableParser.csproj">
+      <Project>{98158042-D2B8-457F-9F99-9CDC81460F52}</Project>
+      <Name>FIITimetableParser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Objects\Objects.csproj">
       <Project>{8397F207-1A94-4545-BEB2-C31087150525}</Project>
       <Name>Objects</Name>

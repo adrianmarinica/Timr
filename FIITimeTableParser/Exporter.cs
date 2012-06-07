@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using FIITimetableParser.FiiObjects;
 using Objects;
 
 namespace FIITimetableParser
 {
     public class Exporter
     {
-        public string ConvertToXML(List<TimetableItem> timetable)
+        public string ConvertToXML(List<FiiTimetableItem> timetable, List<Subject> availableSubjects)
         {
             if (timetable != null)
             {
-                return GetXMLFromTimetable(timetable).ToString();
+                return GetXMLFromTimetable(timetable, availableSubjects).ToString();
             }
             return String.Empty;
         }
 
-        public XDocument ConvertToXDocument(List<TimetableItem> timetable)
+        public XDocument ConvertToXDocument(List<FiiTimetableItem> timetable, List<Subject> availableSubjects)
         {
             if (timetable != null)
             {
-                return GetXMLFromTimetable(timetable);
+                return GetXMLFromTimetable(timetable, availableSubjects);
             }
             return new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
         }
 
-        private XDocument GetXMLFromTimetable(List<TimetableItem> timetable)
+        private XDocument GetXMLFromTimetable(List<FiiTimetableItem> timetable, List<Subject> availableSubjects)
         {
             var document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
             var rootTimetable = new XElement("timetable");
@@ -40,11 +41,18 @@ namespace FIITimetableParser
             var saturday = new XElement("saturday");
             var sunday = new XElement("sunday");
 
-            foreach (TimetableItem item in timetable)
+            foreach (var item in timetable)
             {
                 var timetableSubitem = new XElement("tableItem");
-                timetableSubitem.Add(new XElement("startTime", item.StartTime.ToString("HH:mm")));
-                timetableSubitem.Add(new XElement("endTime", item.EndTime.ToString("HH:mm")));
+                if (availableSubjects != null)
+                {
+                    var subjectItem =
+                        availableSubjects.Find(delegate(Subject subject) { return subject.Name == item.ClassName; });
+                    if (subjectItem != null)
+                        timetableSubitem.Add(new XAttribute("id", subjectItem._id.ToString()));
+                }
+                timetableSubitem.Add(new XElement("startTime", item.StartTime));
+                timetableSubitem.Add(new XElement("endTime", item.EndTime));
                 timetableSubitem.Add(new XElement("className", item.ClassName));
                 timetableSubitem.Add(new XElement("classType", (int)item.TypeOfClass));
                 timetableSubitem.Add(new XElement("teacherName", item.TeacherName));
@@ -54,7 +62,7 @@ namespace FIITimetableParser
 
                 var groups = new XElement("groups");
 
-                foreach (Group groupItem in item.StudyGroups)
+                foreach (var groupItem in item.StudyGroups)
                 {
                     var group = new XElement("group");
                     group.Add(new XElement("yearOfStudy", (int)groupItem.YearOfStudy));
@@ -87,8 +95,6 @@ namespace FIITimetableParser
                         break;
                     case DayOfWeek.Wednesday:
                         wednesday.Add(timetableSubitem);
-                        break;
-                    default:
                         break;
                 }
             }

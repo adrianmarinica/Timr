@@ -5,6 +5,7 @@ using System.Web.Security;
 using Constants.Tables;
 using DataAccessLayer.Collections;
 using FIITimetableParser;
+using Logger;
 using MongoDB.Driver.Builders;
 using Objects;
 
@@ -30,7 +31,7 @@ namespace DataAccessLayer
             var userObject = UsersCollection.Collection.FindOneByIdAs<Student>(student.Id);
             if (userObject == null)
             {
-                UsersCollection.Collection.Insert(typeof(Student), student);
+                UsersCollection.Collection.Insert(typeof (Student), student);
                 return true;
             }
             return false;
@@ -44,15 +45,29 @@ namespace DataAccessLayer
             UsersCollection.Collection.Remove(deleteUser);
         }
 
-        public bool ValidateUser(string username, string password)
+        public bool ValidateUser(string username, string password, UserTypes type)
         {
-            QueryComplete usernameExists = Query.EQ("_id", username);
-            QueryComplete passwordExists = Query.EQ(Users.Password.Key, password);
-            QueryComplete userIsValid = Query.And(usernameExists, passwordExists);
+            var usernameExists = Query.EQ("_id", username);
+            var passwordExists = Query.EQ(Users.Password.Key, password);
+            var userIsValid = Query.And(usernameExists, passwordExists);
 
-            if (UsersCollection.Collection.FindAs<Teacher>(userIsValid).Any())
+            try
             {
-                return true;
+                switch (type)
+                {
+                    case UserTypes.Sysop:
+                        return UsersCollection.Collection.FindAs<Sysop>(userIsValid).Any();
+                    case UserTypes.Faculty:
+                        return UsersCollection.Collection.FindAs<Faculty>(userIsValid).Any();
+                    case UserTypes.Teacher:
+                        return UsersCollection.Collection.FindAs<Teacher>(userIsValid).Any();
+                    case UserTypes.Student:
+                        return UsersCollection.Collection.FindAs<Student>(userIsValid).Any();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogger.Log(ex);
             }
             return false;
         }
@@ -75,6 +90,11 @@ namespace DataAccessLayer
         public User GetUser(string username)
         {
             return UsersCollection.Collection.FindOneByIdAs<User>(username);
+        }
+
+        public Student GetStudent(string username)
+        {
+            return UsersCollection.Collection.FindOneByIdAs<Student>(username);
         }
 
         public User GetUser(string username, string password)
@@ -123,8 +143,20 @@ namespace DataAccessLayer
         {
             var faculty = UsersCollection.Collection.FindOneByIdAs<Faculty>(facultyUserName);
             if (faculty != null)
-                return faculty.Teachers;
-            else return null;
+            {
+                if (faculty.Teachers != null)
+                {
+                    var list = new List<Teacher>();
+                    foreach (var teacher in faculty.Teachers)
+                    {
+                        var teacherObject = GetUser(teacher, UserTypes.Teacher) as Teacher;
+                        if (teacherObject != null)
+                            list.Add(teacherObject);
+                    }
+                    return list;
+                }
+            }
+            return null;
         }
 
         #endregion
@@ -197,29 +229,170 @@ namespace DataAccessLayer
             }
         }
 
-        public string GetTimetableForUserAsXml(string username)
+        //  public string GetTimetableForUserAsXml(string username)
+        //  {
+        //      User user = GetUser(username, UserTypes.Student);
+        //      var exporter = new Exporter();
+        //      var parser = new Parser();
+        //      string result = String.Empty;
+        //      var fullTimetable = new List<TimetableItem>();
+        //      if (user != null)
+        //      {
+        //          var student = user as Student;
+        //          if (student != null)
+        //              if (student.SubscribedGroups != null)
+        //                  foreach (Group group in student.SubscribedGroups)
+        //                  {
+        //                      List<TimetableItem> timetableForGroup = parser.GetTimetableForGroup(@group.YearOfStudy,
+        //                                                                                          @group.HalfYearOfStudy,
+        //                                                                                          @group.Number);
+        //                      if (timetableForGroup != null) fullTimetable.AddRange(timetableForGroup);
+        //                  }
+        //      }
+        //      var subjectsDAL = new SubjectsDAL();
+        //      string convertToXML = exporter.ConvertToXML(fullTimetable, subjectsDAL.GetAllSubjects());
+        //      if (convertToXML != null) result = convertToXML;
+        //      return result;
+        //  }
+
+        public void SaveUser(User user)
         {
-            User user = GetUser(username, UserTypes.Student);
-            var exporter = new Exporter();
-            var parser = new Parser();
-            string result = String.Empty;
-            var fullTimetable = new List<TimetableItem>();
+            UsersCollection.Collection.Save(user);
+        }
+
+        public void UpdateUserType(UserTypes userType, string username)
+        {
+            var user = UsersCollection.Collection.FindOneByIdAs<User>(username);
             if (user != null)
+                user.UserType = userType;
+            SaveUser(user);
+        }
+
+        public bool ChangePassword(string username, string oldPassword, string newPassword)
+        {
+            var user = UsersCollection.Collection.FindOneByIdAs<User>(username);
+            if (user.Password == oldPassword)
             {
-                var student = user as Student;
-                if (student != null)
-                    if (student.SubscribedGroups != null)
-                        foreach (Group group in student.SubscribedGroups)
-                        {
-                            List<TimetableItem> timetableForGroup = parser.GetTimetableForGroup(@group.YearOfStudy,
-                                                                                                @group.HalfYearOfStudy,
-                                                                                                @group.Number);
-                            if (timetableForGroup != null) fullTimetable.AddRange(timetableForGroup);
-                        }
+                user.Password = newPassword;
+                return true;
             }
-            string convertToXML = exporter.ConvertToXML(fullTimetable);
-            if (convertToXML != null) result = convertToXML;
-            return result;
+            return false;
+        }
+
+        public void SetFacultyGroups(string facultyName, GenericGroup group)
+        {
+            var findOneByIdAs = UsersCollection.Collection.FindOneByIdAs<Faculty>(facultyName);
+            findOneByIdAs.Groups = group;
+            UsersCollection.Collection.Save(findOneByIdAs);
+        }
+
+        public List<string> GetGroupsByFaculty(string facultyId)
+        {
+            var user = GetUser(facultyId, UserTypes.Faculty);
+            List<string> list = new List<string>();
+            var faculty = user as Faculty;
+
+            if (faculty != null && faculty.Groups != null && faculty.Groups.Groups != null)
+            {
+                foreach (var group in faculty.Groups.Groups) // year
+                {
+                    if (group.Groups != null && group.Groups.Count != 0)
+                    {
+                        foreach (var secondGroup in group.Groups) // half year
+                        {
+                            if (secondGroup.Groups != null && secondGroup.Groups.Count != 0)
+                            {
+                                foreach (var thirdGroup in secondGroup.Groups) // group
+                                {
+                                    list.Add(thirdGroup.Id.ToString());
+                                }
+                            }
+                            else
+                            {
+                                list.Add(secondGroup.Id.ToString());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        list.Add(group.Id.ToString());
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        public void SaveStudent(Student student)
+        {
+            UsersCollection.Collection.Save(student);
+        }
+
+        public string GetGroupName(string facultyId, string groupId)
+        {
+            var faculty = GetUser(facultyId, UserTypes.Faculty) as Faculty;
+
+            if (faculty != null && faculty.Groups != null && faculty.Groups.Groups != null)
+            {
+                foreach (var group in faculty.Groups.Groups) // year
+                {
+                    if(group.Id == groupId) return group.Name;
+
+                    if (group.Groups != null && group.Groups.Count != 0)
+                    {
+                        foreach (var secondGroup in group.Groups) // half year
+                        {
+                            if (secondGroup.Id == groupId) return secondGroup.Name;
+
+                            if (secondGroup.Groups != null && secondGroup.Groups.Count != 0)
+                            {
+                                foreach (var thirdGroup in secondGroup.Groups) // group
+                                {
+                                    if(thirdGroup.Id == groupId) return thirdGroup.Name;
+                                }
+                            }       
+                        }
+                    }
+                }
+            }
+            return String.Empty;
+        }
+
+        public string GetGroupIdByName(string facultyName, string groupName)
+        {
+            var faculty = GetUser(facultyName, UserTypes.Faculty) as Faculty;
+
+            if (faculty != null && faculty.Groups != null && faculty.Groups.Groups != null)
+            {
+                foreach (var group in faculty.Groups.Groups) // year
+                {
+                    if (group.Name == groupName) return group.Id;
+
+                    if (group.Groups != null && group.Groups.Count != 0)
+                    {
+                        foreach (var secondGroup in group.Groups) // half year
+                        {
+                            if (secondGroup.Name == groupName) return secondGroup.Id;
+
+                            if (secondGroup.Groups != null && secondGroup.Groups.Count != 0)
+                            {
+                                foreach (var thirdGroup in secondGroup.Groups) // group
+                                {
+                                    if (thirdGroup.Name == groupName) return thirdGroup.Id;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return string.Empty;
+        }
+
+        public List<Student> GetAllStudents()
+        {
+            var query = Query.EQ("UserType", 4);
+            return UsersCollection.Collection.FindAs<Student>(query).ToList();
         }
     }
+
 }

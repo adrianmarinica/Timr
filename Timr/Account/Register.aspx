@@ -77,9 +77,9 @@
                             <p>
                                 <asp:Label ID="RoleLabel" runat="server" AssociatedControlID="Roles">User Type:</asp:Label>
                                 <asp:DropDownList ID="Roles" runat="server">
-                                    <asp:ListItem Text="Student" />
-                                    <asp:ListItem Text="Teacher" />
-                                    <asp:ListItem Text="Faculty" />
+                                    <asp:ListItem Value="0" Text="Student" />
+                                    <asp:ListItem Value="1" Text="Teacher" />
+                                    <asp:ListItem Value="2" Text="Faculty" />
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator ControlToValidate="Roles" CssClass="failureNotification" Display="Dynamic" 
                                                             ErrorMessage="Type is required." ID="RoleRequired" runat="server" 

@@ -1,1 +1,21 @@
-bbbbbbbbbbbbbbbbasfasfasfasfbbasfasfasfasfbbasfasfasfasfb
+bbbbbbbbbbbbbbbbasfasfasfasfbbasfasfasfasfbbasfasfasfasfbSystem.IO.FileFormatException: Element 'Teachers' does not match any field or property of class Objects.Student.
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer.Deserialize(BsonReader bsonReader, Type nominalType, Type actualType, IBsonSerializationOptions options) in C:\work\10gen\mongodb\mongo-csharp-driver\Bson\Serialization\BsonClassMapSerializer.cs:line 173
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer.Deserialize(BsonReader bsonReader, Type nominalType, IBsonSerializationOptions options) in C:\work\10gen\mongodb\mongo-csharp-driver\Bson\Serialization\BsonClassMapSerializer.cs:line 78
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize(BsonReader bsonReader, Type nominalType, IBsonSerializationOptions options) in C:\work\10gen\mongodb\mongo-csharp-driver\Bson\Serialization\BsonSerializer.cs:line 223
+   at MongoDB.Driver.Internal.MongoReplyMessage`1.ReadFrom(BsonBuffer buffer, IBsonSerializationOptions serializationOptions) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoReplyMessage.cs:line 105
+   at MongoDB.Driver.Internal.MongoConnection.ReceiveMessage[TDocument](BsonBinaryReaderSettings readerSettings, IBsonSerializationOptions serializationOptions) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 442
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetReply(MongoConnection connection, MongoRequestMessage message) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 296
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 253
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 141
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source)
+   at DataAccessLayer.UsersDAL.ValidateUser(String username, String password, UserTypes type) in C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\UsersDAL.cs:line 65System.IO.FileFormatException: Element 'Teachers' does not match any field or property of class Objects.Teacher.
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer.Deserialize(BsonReader bsonReader, Type nominalType, Type actualType, IBsonSerializationOptions options) in C:\work\10gen\mongodb\mongo-csharp-driver\Bson\Serialization\BsonClassMapSerializer.cs:line 173
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer.Deserialize(BsonReader bsonReader, Type nominalType, IBsonSerializationOptions options) in C:\work\10gen\mongodb\mongo-csharp-driver\Bson\Serialization\BsonClassMapSerializer.cs:line 78
+   at MongoDB.Bson.Serialization.BsonSerializer.Deserialize(BsonReader bsonReader, Type nominalType, IBsonSerializationOptions options) in C:\work\10gen\mongodb\mongo-csharp-driver\Bson\Serialization\BsonSerializer.cs:line 223
+   at MongoDB.Driver.Internal.MongoReplyMessage`1.ReadFrom(BsonBuffer buffer, IBsonSerializationOptions serializationOptions) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoReplyMessage.cs:line 105
+   at MongoDB.Driver.Internal.MongoConnection.ReceiveMessage[TDocument](BsonBinaryReaderSettings readerSettings, IBsonSerializationOptions serializationOptions) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Internal\MongoConnection.cs:line 442
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetReply(MongoConnection connection, MongoRequestMessage message) in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 296
+   at MongoDB.Driver.MongoCursorEnumerator`1.GetFirst() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 253
+   at MongoDB.Driver.MongoCursorEnumerator`1.MoveNext() in C:\work\10gen\mongodb\mongo-csharp-driver\Driver\Core\MongoCursorEnumerator.cs:line 141
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source)
+   at DataAccessLayer.UsersDAL.ValidateUser(String username, String password, UserTypes type) in C:\Users\Adrian\Documents\Visual Studio 2010\Projects\Timr\DataAccessLayer\UsersDAL.cs:line 63

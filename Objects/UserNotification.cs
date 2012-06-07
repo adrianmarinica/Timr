@@ -9,7 +9,7 @@ namespace Objects
     {
         public string NotificationId { get; set; }
         public bool UserSolved { get; set; }
-
+        public NotificationTypes NotificationType { get; set; }
         public UserNotification()
         {
             NotificationId = String.Empty;

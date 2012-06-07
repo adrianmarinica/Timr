@@ -8,7 +8,7 @@ namespace Objects
     public class Student : User
     {
         public List<string> SubscribedWebsites { get; set; }
-        public List<Group> SubscribedGroups { get; set; }
+        public List<string> SubscribedGroups { get; set; }
         public List<UserNotification> Notifications { get; set; }
         public List<string> SubscribedFaculties { get; set; }
         public List<string> OptionalSubjects { get; set; }
@@ -17,7 +17,7 @@ namespace Objects
         public Student()
         {
             SubscribedWebsites = new List<string>();
-            SubscribedGroups = new List<Group>();
+            SubscribedGroups = new List<string>();
             SubscribedFaculties = new List<string>();
             OptionalSubjects = new List<string>();
             FailedSubjects = new List<string>();

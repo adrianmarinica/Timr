@@ -7,16 +7,15 @@ namespace Objects
 {
     public class Faculty : User
     {
-        public List<Teacher> Teachers { get; set; }
-        public List<Student> Students { get; set; }
+        public List<string> Teachers { get; set; }
+        public List<string> Students { get; set; }
         public GenericGroup Groups { get; set; }
 
         public Faculty()
         {
-            Teachers = new List<Teacher>();
+            Teachers = new List<string>();
             UserType = UserTypes.Faculty;
-            Students = new List<Student>();
-            Groups = new GenericGroup();
+            Students = new List<string>();
         }
     }
 }

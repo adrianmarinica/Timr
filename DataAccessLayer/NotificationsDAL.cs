@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Objects;
 using DataAccessLayer.Collections;
@@ -12,23 +13,23 @@ namespace DataAccessLayer
 {
     public class NotificationsDAL
     {
-        public void InsertTimetableNotification(TimetableNotification notification)
-        {
-            NotificationsCollection.Collection.Insert<TimetableNotification>(notification);
-            List<Student> students = UsersCollection.Collection.FindAllAs<Student>().ToList();
-            
-            foreach (var student in students)
-            {
-                foreach (var group in student.SubscribedGroups)
-                {
-                    if (notification.ModifiedGroup.IsContainedIn(group))
-                    {
-                        student.Notifications.Add(new UserNotification { NotificationId = notification._id.ToString(), UserSolved = false });
-                    }
-                }
-                UsersCollection.Collection.Save<Student>(student);
-            }
-        }
+        // public void InsertTimetableNotification(TimetableNotification notification)
+        // {
+        //     NotificationsCollection.Collection.Insert<TimetableNotification>(notification);
+        //     List<Student> students = UsersCollection.Collection.FindAllAs<Student>().ToList();
+        //     
+        //     foreach (var student in students)
+        //     {
+        //         foreach (var group in student.SubscribedGroups)
+        //         {
+        //             if (notification.ModifiedGroup.IsContainedIn(group))
+        //             {
+        //                 student.Notifications.Add(new UserNotification { NotificationId = notification._id.ToString(), UserSolved = false });
+        //             }
+        //         }
+        //         UsersCollection.Collection.Save<Student>(student);
+        //     }
+        // }
 
         public void SolveNotification(string notificationId, string username)
         {
@@ -76,9 +77,18 @@ namespace DataAccessLayer
             NotificationsCollection.Collection.Insert(notification);
         }
 
-        public Notification GetNotification(string notificationId)
+        public Notification GetNotification(string notificationId, NotificationTypes notificationType)
         {
-            return NotificationsCollection.Collection.FindOneByIdAs<Notification>(notificationId);
+            switch (notificationType)
+            {
+                case NotificationTypes.FeedNotification:
+                    return NotificationsCollection.Collection.FindOneByIdAs<FeedNotification>(new ObjectId(notificationId));
+                case NotificationTypes.TimetableNotification:
+                    return NotificationsCollection.Collection.FindOneByIdAs<TimetableNotification>(new ObjectId(notificationId));
+                case NotificationTypes.MonitoredWebsitesNotification:
+                    return NotificationsCollection.Collection.FindOneByIdAs<MonitoredWebsiteNotification>(new ObjectId(notificationId));
+            }
+            return null;
         }
     }
 }

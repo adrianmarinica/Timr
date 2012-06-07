@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimrCrypt", "TimrCrypt\TimrCrypt.csproj", "{2D8F38C8-859C-4498-A12B-B7F1EB039B1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{D5A645C0-BF54-42E2-970D-2995B1EC24CC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsiteMonitor", "WebsiteMonitor\WebsiteMonitor.csproj", "{748BA8C1-ABAF-4A17-B0F5-C6F48A8D69F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constants", "Constants\Constants.csproj", "{4AC5BBC3-4434-4973-B5EB-0F06A7EA0C08}"
@@ -35,6 +33,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimrMembershipProvider", "TimrMembershipProvider\TimrMembershipProvider.csproj", "{E21FF902-6FE4-4E82-987F-CBF872C01E1C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimrRoleProvider", "TimrRoleProvider\TimrRoleProvider.csproj", "{9456AF73-E979-4DDD-A1A1-E9F51D886E19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIITimetableRefresher", "FIITimetableRefresher\FIITimetableRefresher.csproj", "{E73E638F-D2BC-47AC-9011-753B99F10CF3}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -119,16 +119,6 @@ Global
 		{2D8F38C8-859C-4498-A12B-B7F1EB039B1A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2D8F38C8-859C-4498-A12B-B7F1EB039B1A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2D8F38C8-859C-4498-A12B-B7F1EB039B1A}.Release|x86.ActiveCfg = Release|Any CPU
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Debug|x86.ActiveCfg = Debug|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Debug|x86.Build.0 = Debug|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Release|Any CPU.ActiveCfg = Release|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Release|Mixed Platforms.Build.0 = Release|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Release|x86.ActiveCfg = Release|x86
-		{D5A645C0-BF54-42E2-970D-2995B1EC24CC}.Release|x86.Build.0 = Release|x86
 		{748BA8C1-ABAF-4A17-B0F5-C6F48A8D69F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{748BA8C1-ABAF-4A17-B0F5-C6F48A8D69F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748BA8C1-ABAF-4A17-B0F5-C6F48A8D69F2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -189,6 +179,16 @@ Global
 		{9456AF73-E979-4DDD-A1A1-E9F51D886E19}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9456AF73-E979-4DDD-A1A1-E9F51D886E19}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9456AF73-E979-4DDD-A1A1-E9F51D886E19}.Release|x86.ActiveCfg = Release|Any CPU
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Debug|x86.ActiveCfg = Debug|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Debug|x86.Build.0 = Debug|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Release|Any CPU.ActiveCfg = Release|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Release|Mixed Platforms.Build.0 = Release|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Release|x86.ActiveCfg = Release|x86
+		{E73E638F-D2BC-47AC-9011-753B99F10CF3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

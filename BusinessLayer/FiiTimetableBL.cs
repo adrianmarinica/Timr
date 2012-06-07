@@ -5,6 +5,7 @@ using System.Text;
 using Objects;
 using FIITimetableParser;
 using DataAccessLayer;
+using FIITimetableParser.FiiObjects;
 
 namespace BusinessLogic
 {
@@ -26,37 +27,26 @@ namespace BusinessLogic
             }
         }
 
-        private FiiTimetableDAL dal
-        {
-            get
-            {
-                return new FiiTimetableDAL();
-            }
-        }
-
-        public List<TimetableItem> GetTimetableForBachelorYear(StudyYear year, HalfYear halfYear)
+        public List<FiiTimetableItem> GetTimetableForBachelorYear(StudyYear year, HalfYear halfYear)
         {
             return _parser.GetTimetableForYear(year, halfYear);
         }
 
-        public List<TimetableItem> GetTimetableForMastersYear(StudyYear year)
+        public List<FiiTimetableItem> GetTimetableForMastersYear(StudyYear year)
         {
             return _parser.GetTimetableForYear(year);
         }
 
         public string GetXMLTimetableForBachelorYear(StudyYear year, HalfYear halfYear)
         {
-            return _exporter.ConvertToXML(_parser.GetTimetableForYear(year, halfYear));
+            var subjectsBL = new SubjectsBL();
+            return _exporter.ConvertToXML(_parser.GetTimetableForYear(year, halfYear), subjectsBL.GetAllSubjects());
         }
 
         public string GetXMLTimetableForMastersYear(StudyYear year)
         {
-            return _exporter.ConvertToXML(_parser.GetTimetableForYear(year));
-        }
-
-        public void RefreshTimetable()
-        {
-            dal.RefreshTimetable();
+            var subjectsBL = new SubjectsBL();
+            return _exporter.ConvertToXML(_parser.GetTimetableForYear(year), subjectsBL.GetAllSubjects());
         }
     }
 }

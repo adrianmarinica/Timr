@@ -10,7 +10,7 @@ namespace WebsiteMonitor
 {
     public class Monitor
     {
-        public List<MonitoredWebsite> FilterAllModifiedWebsites(List<MonitoredWebsite> list)
+        public static List<MonitoredWebsite> FilterAllModifiedWebsites(List<MonitoredWebsite> list)
         {
             List<MonitoredWebsite> newList = new List<MonitoredWebsite>();
             foreach (var site in list)

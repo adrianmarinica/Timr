@@ -24,13 +24,17 @@ namespace BusinessLogic
             return dal.GetAllMonitoredWebsites(userName);
         }
 
+        public string GetAllSubscribedWebsitesAsXml(string username)
+        {
+            return dal.GetAllSubscribedWebsitesAsXml(username);
+        }
+
         public List<MonitoredWebsite> GetAllModifiedWebsites(string userName)
         {
             List<MonitoredWebsite> list = dal.GetMonitoredWebsitesByUsername(userName);
             if(list != null)
             {
-                Monitor monitor = new Monitor();
-                list = monitor.FilterAllModifiedWebsites(list);
+                list = Monitor.FilterAllModifiedWebsites(list);
                 dal.SaveMonitoredWebsites(list);
             }
             return list;
@@ -45,6 +49,21 @@ namespace BusinessLogic
         public MonitoredWebsite GetWebsite(string website)
         {
             return dal.GetWebsite(website);
+        }
+
+        public void InsertWebsite(MonitoredWebsite website)
+        {
+            dal.InsertWebsite(website);
+        }
+
+        public List<MonitoredWebsite> GetAllWebsites()
+        {
+            return dal.GetAllWebsites();
+        }
+
+        public void SaveMonitoredWebsites(List<MonitoredWebsite> filterAllModifiedWebsites)
+        {
+            dal.SaveMonitoredWebsites(filterAllModifiedWebsites);
         }
     }
 }

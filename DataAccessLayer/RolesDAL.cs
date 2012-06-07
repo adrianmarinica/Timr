@@ -63,5 +63,54 @@ namespace DataAccessLayer
             var roleList = RolesCollection.Collection.FindAllAs<UserRole>();
             return roleList.Select(userRole => userRole.Name).ToArray();
         }
+
+        public void AddUserToRole(string username, string roleName)
+        {
+            var usersDAL = new UsersDAL();
+            var user = usersDAL.GetUser(username);
+
+            if(user.Roles == null)
+                user.Roles = new List<UserRole>();
+            user.Roles.Add(new UserRole { Name= roleName, UserType = (UserTypes)Enum.Parse(typeof(UserTypes), roleName) });
+            usersDAL.SaveUser(user);
+        }
+
+        public void RemoveUserFromRole(string username, string roleName)
+        {
+            var usersDAL = new UsersDAL();
+            var user = usersDAL.GetUser(username);
+
+            if (user.Roles == null)
+                user.Roles = new List<UserRole>();
+            int index = user.Roles.FindIndex(0, delegate(UserRole role)
+                                        {
+                                            return role.Name == roleName;
+                                        });
+            
+            if(index < user.Roles.Count)
+            user.Roles.RemoveAt(index);
+            usersDAL.SaveUser(user);
+        }
+
+        public string[] FindUsersInRole(string roleName, string usernameToMatch)
+        {
+            var usersDAL = new UsersDAL();
+            var users = usersDAL.GetAllUsers();
+            var listOfUsers = new List<string>();
+            foreach (var user in users)
+            {
+                if(user.Name.Contains(usernameToMatch))
+                {
+                    foreach (var role in user.Roles)
+                    {
+                        if(role.Name == roleName)
+                        {
+                            listOfUsers.Add(user.Name);   
+                        }
+                    }
+                }
+            }
+            return listOfUsers.ToArray();
+        }
     }
 }

@@ -23,9 +23,9 @@ namespace DataAccessLayer
             if (faculty != null && teacher != null)
             {
                 if(faculty.Teachers == null)
-                    faculty.Teachers = new List<Teacher>();
+                    faculty.Teachers = new List<string>();
 
-                faculty.Teachers.Add(teacher);
+                faculty.Teachers.Add(request.TeacherUsername);
                 var removeQuery = Query.EQ("_id", request._id);
                 TeacherRequestsCollection.Collection.Remove(removeQuery);
             }
